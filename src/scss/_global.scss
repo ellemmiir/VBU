@@ -1,0 +1,72 @@
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px;
+}
+
+body {
+  background-color: $white;
+  @extend %russische;
+  font-size: 18px;
+  line-height: 1.5;
+  color: $black;
+  overflow-x: hidden;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1200px;
+}
+
+.container-min {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1700px;
+}
+
+a {
+  // @extend %semibold;
+  // color: $white;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+}
+
+section {
+  padding: 100px 0;
+}
+
+.title {
+  font-size: 48px;
+  line-height: 1;
+  @extend %russische;
+}
+
+.sm-title {
+  display: block;
+  margin-bottom: 10px;
+  @extend %pd-regular;
+  color: $gold;
+}
+
+.description {
+  margin-top: 30px;
+  width: 600px;
+  @extend %p-regular;
+  font-size: 20px;
+  color: $dark-grey;
+}
+
+.btn-up {
+  background-color: transparent;
+  position: fixed;
+  right: 17px;
+  bottom: 24px;
+  cursor: pointer;
+}
+
+.btn-up_hide {
+  display: none;
+}
