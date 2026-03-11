@@ -13771,6 +13771,14 @@ $(document).ready(function () {
     let lastScrollTop = 0;
     let isMobileMenuOpen = false;
 
+    function handleHeaderBackground() {
+      if (window.scrollY > 50) {
+        header.classList.add("scrolled");
+      } else {
+        header.classList.remove("scrolled");
+      }
+    }
+
     function handleHeaderOnScroll() {
       const scrollTop =
         window.pageYOffset || document.documentElement.scrollTop;
@@ -13780,6 +13788,8 @@ $(document).ready(function () {
       }
 
       lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+
+      handleHeaderBackground();
     }
 
     function closeMobileMenu() {
@@ -13870,11 +13880,11 @@ $(document).ready(function () {
       const scrollTopBtn = document.createElement("button");
       scrollTopBtn.className = "scroll-top";
       scrollTopBtn.innerHTML = `
-        <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 50 50">
-          <path style="stroke:none;fill-rule:evenodd;fill:#005752;fill-opacity:1;"
-            d="M 35.210938 25.84375 C 34.601562 26.453125 33.613281 26.453125 33 25.84375 L 26.5625 19.390625 L 26.5625 35.9375 C 26.5625 36.796875 25.863281 37.5 25 37.5 C 24.136719 37.5 23.4375 36.796875 23.4375 35.9375 L 23.4375 19.390625 L 17 25.84375 C 16.386719 26.453125 15.398438 26.453125 14.789062 25.84375 C 14.179688 25.21875 14.179688 24.234375 14.789062 23.625 L 23.625 14.78125 C 24 14.40625 24.515625 14.296875 25 14.390625 C 25.484375 14.296875 26 14.40625 26.375 14.78125 L 35.210938 23.625 C 35.820312 24.234375 35.820312 25.21875 35.210938 25.84375 Z M 25 0 C 11.191406 0 0 11.1875 0 25 C 0 38.8125 11.191406 50 25 50 C 38.808594 50 50 38.8125 50 25 C 50 11.1875 38.808594 0 25 0 Z M 25 0" />
-        </svg>
-      `;
+            <svg xmlns="http://www.w3.org/2000/svg" width="50px" height="50px" viewBox="0 0 50 50">
+                <path style="stroke:none;fill-rule:evenodd;fill:#9c9c9c;fill-opacity:1;"
+                    d="M 35.210938 25.84375 C 34.601562 26.453125 33.613281 26.453125 33 25.84375 L 26.5625 19.390625 L 26.5625 35.9375 C 26.5625 36.796875 25.863281 37.5 25 37.5 C 24.136719 37.5 23.4375 36.796875 23.4375 35.9375 L 23.4375 19.390625 L 17 25.84375 C 16.386719 26.453125 15.398438 26.453125 14.789062 25.84375 C 14.179688 25.21875 14.179688 24.234375 14.789062 23.625 L 23.625 14.78125 C 24 14.40625 24.515625 14.296875 25 14.390625 C 25.484375 14.296875 26 14.40625 26.375 14.78125 L 35.210938 23.625 C 35.820312 24.234375 35.820312 25.21875 35.210938 25.84375 Z M 25 0 C 11.191406 0 0 11.1875 0 25 C 0 38.8125 11.191406 50 25 50 C 38.808594 50 50 38.8125 50 25 C 50 11.1875 38.808594 0 25 0 Z M 25 0" />
+            </svg>
+        `;
 
       document.body.appendChild(scrollTopBtn);
 
@@ -13897,6 +13907,7 @@ $(document).ready(function () {
     const oldBtnUp = document.querySelector(".btn-up");
     if (oldBtnUp) oldBtnUp.remove();
 
+    handleHeaderBackground();
     handleHeaderOnScroll();
     activateMenu();
     createScrollTopButton();
